@@ -1,0 +1,61 @@
+@mixin flexMode-1($and) {
+    display: flex;
+    justify-content: space-between;
+    place-items: $and;
+}
+
+
+
+header {
+    @include flexMode-1(center);
+    .header-logo {
+        width: 160px;
+    }
+}
+
+/* MAIN
+------------------------------- */
+main {
+    @include flexMode-1(center);
+    .sub-container {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+    h2 {
+        font-size: 1.125rem;
+    }
+    section {
+        margin-top: 60px;
+    }
+}
+
+/* index */
+// 変数
+
+
+.index {
+    @include flexMode-1(left);
+    $index-color: #b95a5a; // $ローカルスコープ
+    background-color: $index-color;
+    padding: 30px 0 20px;
+    ol li {
+        margin: 0 0 20px 20px;
+    }
+}
+
+/* フッター
+------------------------------- */
+// 変数
+$footer-color: rgb(255, 5, 5); // グローバルスコープ
+
+#footer {
+    @include flexMode-1(center);
+    margin: 110px 0 15px;
+    p {
+        font-size: 5.625rem;
+        &:hover {
+            color: $footer-color; //$文字色
+        }
+    }
+}
+
